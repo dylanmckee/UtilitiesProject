@@ -22,6 +22,26 @@ namespace UtilitiesProject.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("UtilitiesProject.Models.Bill", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<double>("Amount")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Paid")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("UtilityID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Bills");
+                });
+
             modelBuilder.Entity("UtilitiesProject.Models.Utility", b =>
                 {
                     b.Property<Guid>("Id")

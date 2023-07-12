@@ -1,6 +1,6 @@
 ﻿namespace UtilitiesProject.Models.ViewModels
 {
-    public class EditUtilityModel
+    public class EditUtilityViewModel
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

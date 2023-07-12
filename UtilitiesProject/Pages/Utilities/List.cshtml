@@ -1,0 +1,38 @@
+﻿@page
+@model UtilitiesProject.Pages.Utilities.ListModel
+@{
+
+}
+<h1 class="mb-3"> List Of Utilities</h1>
+
+@if (Model.Utilities != null && Model.Utilities.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Period</th>
+                <th> </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var utility in Model.Utilities)
+            {
+                <tr>
+                    <td>@utility.Name</td>
+                    <td>@utility.Period</td>
+                    <td>
+                        <a href="/Utilities/Edit/@utility.Id" class="btn btn-dark">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="/Utilities/Add" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add New Utility</a>
+    
+}
+else
+{
+    <p>No Utilities Found</p>
+}

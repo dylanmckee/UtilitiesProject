@@ -12,8 +12,8 @@ using UtilitiesProject.Data;
 namespace UtilitiesProject.Migrations
 {
     [DbContext(typeof(UtilityContext))]
-    [Migration("20230712171826_Initial Migration")]
-    partial class InitialMigration
+    [Migration("20230712202846_4")]
+    partial class _4
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,6 +25,26 @@ namespace UtilitiesProject.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("UtilitiesProject.Models.Bill", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<double>("Amount")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Paid")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("UtilityID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Bills");
+                });
+
             modelBuilder.Entity("UtilitiesProject.Models.Utility", b =>
                 {
                     b.Property<Guid>("Id")
@@ -35,8 +55,9 @@ namespace UtilitiesProject.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Period")
-                        .HasColumnType("int");
+                    b.Property<string>("Period")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
