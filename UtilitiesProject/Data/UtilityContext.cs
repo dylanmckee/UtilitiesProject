@@ -20,5 +20,29 @@ namespace UtilitiesProject.Data
             }
             return null;
         }
+        public string findUtilityNameById(Guid id)
+        {
+
+            foreach (Utility utility in Utilities)
+            {
+                if (utility.Id.Equals(id) || utility.Id == id)
+                {
+                    Console.WriteLine(utility.Id + "\n" + id);
+                    return utility.Name;
+                }
+            }
+            return "Not found";
+        }
+        public Bill findBillById(Guid id)
+        {
+            foreach (Bill bill in Bills)
+            {
+                if (!bill.Id.Equals(id))
+                {
+                    return bill;
+                }
+            }
+            return null;
+        }
     }
 }

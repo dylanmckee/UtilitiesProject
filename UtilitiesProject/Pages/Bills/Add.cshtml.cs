@@ -21,7 +21,6 @@ namespace UtilitiesProject.Pages.Bills
         public AddUtilityViewModel AddUtilityRequest { get; set; }
         public Utility utility { get; set; }
         public List<Utility> utilities { get; set; }
-        public List<string> utilNames { get; set; }
         public List<SelectListItem> options { get; set; }
         [BindProperty]
         public String selectedUtil { get; set; }
